@@ -21,7 +21,7 @@
 			width: 1000px;
 			margin-left: auto;
 			margin-right: auto;
-			border:1px solid #aaa;
+			/* border:1px solid #aaa; */
 		}
 		.topbar>.container>a,
 		.topbar>.container>span{
@@ -45,7 +45,7 @@
 		
 		.search{/*搜索条右浮动*/
 			float: right;
-			padding-top:9px;
+			padding-top:8px;
 		}
 		.search>input{
 			width: 430px;
@@ -63,6 +63,20 @@
 			font-size: 2.2em;
 			line-height: 32px;
 			text-align: center;
+		}
+		.cart{
+			float: right;
+			background: #f9f9f9;
+		    border:1px solid #ddd;
+			line-height: 30px;/*行高*/
+			margin-top: 8px;
+			margin-left: 20px;
+		
+		}
+		.cart>.fa{
+			padding-left: .6em;
+			padding-right: .6em;
+			color: #57BC4C;
 		}
 	</style>
 </head>
@@ -90,15 +104,21 @@
 		</div>
 	</div>
 
-      <!-- 搜索条 -->
+      <!-- 1搜索条 -->
 	<div class="searchbar">
 		<div class="container">
 			<img src="img/logo.png" alt="iWeb LOGO">
-			<!-- 输入框 -->
+			
+			<!-- 3我的购物车 -->
+			<div class="cart">
+				<span class="fa fa-shopping-cart fa-lg"></span>
+				<span>我的购物车(<b>0</b>)</span>
+				<span class="fa fa-caret-down"></span>
+			</div>
+			<!-- 2输入框 -->
 			<div class="search">
 			<input type="text" placeholder="课程搜索" ><span class="fa fa-search fa-lg"></span>
 			</div>
-			<!-- 我的购物车 -->
 		</div>
 	</div>
 
