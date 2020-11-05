@@ -64,13 +64,23 @@
 			line-height: 32px;
 			text-align: center;
 		}
-		.cart{
+		
+		.cart-container{
+			position: relative;
 			float: right;
+		}
+		.cart{
 			background: #f9f9f9;
 		    border:1px solid #ddd;
-			line-height: 30px;/*行高*/
+			line-height: 31px;/*行高*/
 			margin-top: 8px;
 			margin-left: 20px;
+			/* 修改光标的样式 */
+			cursor: pointer;
+			/* 只有定位的元素才能使用z-index*/
+			position: relative;
+			z-index: 1;
+			border-bottom: none;
 		
 		}
 		.cart>.fa{
@@ -78,6 +88,25 @@
 			padding-right: .6em;
 			color: #57BC4C;
 		}
+		.cart>.caret{
+			
+			transform: rotate(0);
+			transition: all .5s;
+		}
+		.cart>.caret-rotate{
+			transform: rotate(180deg);
+		}
+		.cart-container>.dropdown{
+			position: absolute;/*绝对定位的元素可以处于其他元素上方*/
+			right: 0;
+			top: 39px;
+			border: 1px solid #ddd;
+			padding: 2em 3em;/*上右*/
+			width: 262px;
+			background: #fff;
+				
+		}
+		
 	</style>
 </head>
 <body>
@@ -110,11 +139,20 @@
 			<img src="img/logo.png" alt="iWeb LOGO">
 			
 			<!-- 3我的购物车 -->
-			<div class="cart">
+			<div class="cart-container">
+				<!-- 购物车 -->
+				<div class="cart" id="myCart">
 				<span class="fa fa-shopping-cart fa-lg"></span>
 				<span>我的购物车(<b>0</b>)</span>
-				<span class="fa fa-caret-down"></span>
+				<span class="fa fa-caret-down caret " id="caret"></span>
+				</div>
+				<!-- 下拉菜单 -->
+				<div class="dropdown">
+					请登录后查看您的购物车
+				</div>
+			
 			</div>
+			
 			<!-- 2输入框 -->
 			<div class="search">
 			<input type="text" placeholder="课程搜索" ><span class="fa fa-search fa-lg"></span>
@@ -122,5 +160,14 @@
 		</div>
 	</div>
 
+    <script>
+		//鼠标进入“我的购物车”，则小三角旋转
+		myCart.onmouseenter = ()=>{
+			caret.classList.add('caret-rotate')
+		}
+		myCart.onmouseleave = () =>{
+		    caret.classList.remove('caret-rotate')
+		}
+	</script> 
 </body>
 </html>
